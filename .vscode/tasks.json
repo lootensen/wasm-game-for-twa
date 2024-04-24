@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Compile to WASM",
+      "type": "shell",
+      "command": "env GOOS=js GOARCH=wasm go build -o /home/daniel/workspace/_go/wasm-demo-game/build/mygame.wasm /home/daniel/workspace/_go/wasm-demo-game/main_wasm.go",
+      "problemMatcher": []
+    },
+    {
+      "label": "Compile to Linux",
+      "type": "shell",
+      "command": "env GOOS=js GOARCH=wasm go build -o /home/daniel/workspace/_go/wasm-demo-game/build/mygame /home/daniel/workspace/_go/wasm-demo-game/main_linux.go",
+      "problemMatcher": []
+    },
+  ]
+}
