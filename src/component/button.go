@@ -39,7 +39,7 @@ func (b Button) OnClick() {
 	cursorPosX, cursorPosY := ebiten.CursorPosition()
 	if utils.PositionInRectangle(cursorPosX, cursorPosY, int(b.X), int(b.Y), int(b.Width), int(b.Height)) {
 		if b.JSInterface != nil {
-			b.JSInterface.CallFunction("window.Telegram.WebApp.showAlert", "Hey there!")
+			b.JSInterface.CallFunction("Telegram.WebApp.showAlert", "Hey there!")
 		}
 	}
 }
