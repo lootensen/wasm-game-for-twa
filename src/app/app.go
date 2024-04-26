@@ -42,7 +42,7 @@ func RunApp(jsInterface *component.JSInterface) {
 	}
 
 	closeBtn := &component.Button{
-		X:           400,
+		X:           300,
 		Y:           60,
 		Width:       60,
 		Height:      60,
