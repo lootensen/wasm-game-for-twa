@@ -1,7 +1,6 @@
 package component
 
 import (
-	"fmt"
 	"image/color"
 
 	"github.com/hajimehoshi/ebiten/v2"
@@ -36,12 +35,11 @@ func (b Button) Draw(screen *ebiten.Image) {
 }
 
 func (b Button) OnClick() {
-	if b.JSInterface != nil {
-		b.JSInterface.CallFunction("console.log", "My New JS Interface works") // Rufe eine JS-Funktion auf
-	}
+
 	cursorPosX, cursorPosY := ebiten.CursorPosition()
 	if utils.PositionInRectangle(cursorPosX, cursorPosY, int(b.X), int(b.Y), int(b.Width), int(b.Height)) {
-		fmt.Println("Button has been clicked")
+		if b.JSInterface != nil {
+			b.JSInterface.CallFunction("window.Telegram.WebApp.showAlert", "Hey there!")
+		}
 	}
-
 }

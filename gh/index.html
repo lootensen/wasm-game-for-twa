@@ -3,7 +3,7 @@
 <head>
     <title>TWA</title>
     <meta charset="UTF-8">
-    <script type="text/javascript" src="https://telegram.org/js/telegram-web-app.js" async></script>
+    <script type="text/javascript" src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="./wasm_exec.js" type="text/javascript"></script>
     <script>
         // Polyfill
@@ -19,9 +19,6 @@
             go.run(result.instance);
         });
         </script>
-    <script type="text/javascript">
-        window.Telegram.WebApp.showAlert('Hey there!');
-    </script>
 </head>
 
 <body>

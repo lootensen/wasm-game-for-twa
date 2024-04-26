@@ -18,3 +18,13 @@ cp $(go env GOROOT)/misc/wasm/wasm_exec.js .
 ## GH Pages
 
 [Zu Github Pages (TWA)](https://lootensen.github.io/wasm-game-for-twa/)
+
+## Docker
+
+```bash`
+
+docker build -t wasm-game-for-twa .
+
+```bash
+docker run -d -p 8080:8080 --name twa-web-server wasm-game-for-twa
+``
