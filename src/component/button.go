@@ -6,7 +6,7 @@ import (
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/inpututil"
 	"github.com/hajimehoshi/ebiten/v2/vector"
-	"github.com/lootensen/wasm-demo-game/utils"
+	"github.com/lootensen/wasm-demo-game/src/utils"
 )
 
 type Button struct {

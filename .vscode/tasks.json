@@ -4,13 +4,13 @@
     {
       "label": "Compile to WASM",
       "type": "shell",
-      "command": "env GOOS=js GOARCH=wasm go build -o ${workspaceRoot}/build/mygame.wasm ${workspaceRoot}/main.go",
+      "command": "env GOOS=js GOARCH=wasm go build -o ${workspaceRoot}/build/mygame.wasm ${workspaceRoot}/src/main.go",
       "problemMatcher": []
     },
     {
       "label": "Compile to OS",
       "type": "shell",
-      "command": "go build -o ${workspaceRoot}/build/mygame ${workspaceRoot}/main.go",
+      "command": "go build -o ${workspaceRoot}/build/mygame ${workspaceRoot}/src/main.go",
       "problemMatcher": []
     },
   ]

@@ -5,7 +5,7 @@ import (
 	"log"
 
 	"github.com/hajimehoshi/ebiten/v2"
-	"github.com/lootensen/wasm-demo-game/component"
+	"github.com/lootensen/wasm-demo-game/src/component"
 )
 
 type Game struct {

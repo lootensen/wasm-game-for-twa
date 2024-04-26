@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/lootensen/wasm-demo-game/app"
-	"github.com/lootensen/wasm-demo-game/component"
+	"github.com/lootensen/wasm-demo-game/src/app"
+	"github.com/lootensen/wasm-demo-game/src/component"
 )
 
 func main() {
