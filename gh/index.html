@@ -1,0 +1,31 @@
+<html lang="en">
+
+<head>
+    <title>TWA</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://telegram.org/js/telegram-web-app.js" async></script>
+    <script src="./wasm_exec.js" type="text/javascript"></script>
+    <script>
+        // Polyfill
+        if (!WebAssembly.instantiateStreaming) {
+            WebAssembly.instantiateStreaming = async (resp, importObject) => {
+                const source = await (await resp).arrayBuffer();
+                return await WebAssembly.instantiate(source, importObject);
+            };
+        }
+        
+        const go = new Go();
+        WebAssembly.instantiateStreaming(fetch("mygame.wasm"), go.importObject).then(result => {
+            go.run(result.instance);
+        });
+        </script>
+    <script type="text/javascript">
+        window.Telegram.WebApp.showAlert('Hey there!');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
