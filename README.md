@@ -26,4 +26,4 @@ docker build -t wasm-game-for-twa .
 
 ```bash
 docker run -d -p 8080:8080 --name twa-web-server wasm-game-for-twa
-``
+```
