@@ -10,11 +10,12 @@ import (
 )
 
 type Button struct {
-	X           float32
-	Y           float32
-	Width       float32
-	Height      float32
-	JSInterface *JSInterface
+	X              float32
+	Y              float32
+	Width          float32
+	Height         float32
+	JSInterface    *JSInterface
+	OnClickHandler func()
 }
 
 type IButton interface {
@@ -35,11 +36,14 @@ func (b Button) Draw(screen *ebiten.Image) {
 }
 
 func (b Button) OnClick() {
+	if b.OnClickHandler != nil {
+		cursorPosX, cursorPosY := ebiten.CursorPosition()
+		if utils.PositionInRectangle(cursorPosX, cursorPosY, int(b.X), int(b.Y), int(b.Width), int(b.Height)) {
+			b.OnClickHandler()
+			// if b.JSInterface != nil {
 
-	cursorPosX, cursorPosY := ebiten.CursorPosition()
-	if utils.PositionInRectangle(cursorPosX, cursorPosY, int(b.X), int(b.Y), int(b.Width), int(b.Height)) {
-		if b.JSInterface != nil {
-			b.JSInterface.CallFunction("Telegram.WebApp.showAlert", "Hey there!")
+			//
+			// }
 		}
 	}
 }

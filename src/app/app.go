@@ -9,17 +9,21 @@ import (
 )
 
 type Game struct {
-	btn component.Button
+	btn []*component.Button
 }
 
 func (g *Game) Update() error {
-	g.btn.Update()
+	for _, btn := range g.btn {
+		btn.Update()
+	}
 	return nil
 }
 
 func (g *Game) Draw(screen *ebiten.Image) {
 	screen.Fill(color.RGBA{0xff, 0x1f, 0xa0, 0xff})
-	g.btn.Draw(screen)
+	for _, btn := range g.btn {
+		btn.Draw(screen)
+	}
 }
 
 func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
@@ -32,9 +36,23 @@ func RunApp(jsInterface *component.JSInterface) {
 		Width:       100,
 		Height:      60,
 		JSInterface: jsInterface,
+		OnClickHandler: func() {
+			jsInterface.CallFunction("Telegram.WebApp.expand", nil)
+		},
+	}
+
+	closeBtn := &component.Button{
+		X:           400,
+		Y:           60,
+		Width:       60,
+		Height:      60,
+		JSInterface: jsInterface,
+		OnClickHandler: func() {
+			jsInterface.CallFunction("Telegram.WebApp.close", nil)
+		},
 	}
 	game := &Game{
-		btn: *btn,
+		btn: []*component.Button{btn, closeBtn},
 	}
 	ebiten.SetWindowSize(720, 1280)
 	ebiten.SetWindowTitle("Fill")
