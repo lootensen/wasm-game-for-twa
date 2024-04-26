@@ -13,3 +13,8 @@ env GOOS=js GOARCH=wasm go build -o mygame.wasm github.com/lootensen/wasm-demo-g
 ```shell
 cp $(go env GOROOT)/misc/wasm/wasm_exec.js .
 ```
+
+
+## GH Pages
+
+[Zu Github Pages (TWA)](https://lootensen.github.io/wasm-game-for-twa/)
