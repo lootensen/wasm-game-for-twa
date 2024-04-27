@@ -9,12 +9,14 @@ import (
 )
 
 type Game struct {
-	btn []*component.Button
+	btn      []*component.Button
+	TouchIDs []ebiten.TouchID
 }
 
 func (g *Game) Update() error {
+	g.TouchIDs = ebiten.AppendTouchIDs(g.TouchIDs[:0])
 	for _, btn := range g.btn {
-		btn.Update()
+		btn.Update(g.TouchIDs)
 	}
 	return nil
 }
@@ -52,7 +54,8 @@ func RunApp(jsInterface *component.JSInterface) {
 		},
 	}
 	game := &Game{
-		btn: []*component.Button{btn, closeBtn},
+		btn:      []*component.Button{btn, closeBtn},
+		TouchIDs: make([]ebiten.TouchID, 0),
 	}
 	ebiten.SetWindowSize(720, 1280)
 	ebiten.SetWindowTitle("Fill")

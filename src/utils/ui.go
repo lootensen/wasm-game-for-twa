@@ -12,16 +12,16 @@ func PositionInRectangle(posX int, posY int, rectX int, rectY int, rectWidth int
 	return false
 }
 
-func ClickedOrTouched(touchID *ebiten.TouchID) bool {
-	if inpututil.IsTouchJustReleased(*touchID) || inpututil.IsMouseButtonJustReleased(ebiten.MouseButton0) {
+func ClickedOrTouched(touchID ebiten.TouchID) bool {
+	if inpututil.IsTouchJustReleased(touchID) || inpututil.IsMouseButtonJustReleased(ebiten.MouseButton0) {
 		return true
 	}
 	return false
 }
 
-func ClickOrTouchPosition(touchID *ebiten.TouchID) (x, y int) {
-	if inpututil.IsTouchJustReleased(*touchID) {
-		return ebiten.TouchPosition(*touchID)
+func ClickOrTouchPosition(touchID ebiten.TouchID) (x, y int) {
+	if inpututil.IsTouchJustReleased(touchID) {
+		return ebiten.TouchPosition(touchID)
 	}
 	return ebiten.CursorPosition()
 }
