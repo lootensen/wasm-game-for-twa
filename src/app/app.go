@@ -1,6 +1,7 @@
 package app
 
 import (
+	"fmt"
 	"image/color"
 	"log"
 
@@ -42,6 +43,8 @@ func (g *Game) gatherInputs() []struct{ X, Y int } {
 	// Collect touch inputs
 	for _, id := range ebiten.AppendTouchIDs(nil) {
 		if inpututil.IsTouchJustReleased(id) {
+			fmt.Println("IsTouchJustReleased")
+
 			x, y := ebiten.TouchPosition(id)
 			inputs = append(inputs, struct{ X, Y int }{X: x, Y: y})
 		}
@@ -49,6 +52,7 @@ func (g *Game) gatherInputs() []struct{ X, Y int } {
 
 	// Collect mouse input if the left button is just pressed
 	if inpututil.IsMouseButtonJustPressed(ebiten.MouseButtonLeft) {
+		fmt.Println("IsMouseButtonJustPressed")
 		x, y := ebiten.CursorPosition()
 		inputs = append(inputs, struct{ X, Y int }{X: x, Y: y})
 	}
