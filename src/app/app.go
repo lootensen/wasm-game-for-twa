@@ -65,7 +65,7 @@ func RunApp(jsInterface *component.JSInterface) {
 		JSInterface: jsInterface,
 		OnClickHandler: func() {
 			jsInterface.CallFunction("Telegram.WebApp.expand", nil)
-			jsInterface.CallFunction("console.log", "Test Output")
+			jsInterface.CallFunction("window.console.log", "Test Output")
 		},
 	}
 
