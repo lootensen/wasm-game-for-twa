@@ -5,6 +5,7 @@ RUN apk add --no-cache caddy
 
 # Copy Caddyfile and content
 COPY Caddyfile /etc/caddy/Caddyfile
+COPY build/mygame.wasm /srv
 COPY gh /srv
 
 # Expose the necessary port
