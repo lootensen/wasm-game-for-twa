@@ -18,6 +18,9 @@ jobs:
       - name: "Install dependencies"
         run: go get ./src
       - name: "Build"
+        env:
+          GOOS: js
+          GOARCH: wasm
         run: env GOOS=js GOARCH=wasm go build -o ./gh/mygame.wasm ./src/main.go 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4

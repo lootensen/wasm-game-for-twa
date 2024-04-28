@@ -72,8 +72,8 @@ func RunApp(jsInterface *component.JSInterface) {
 		Height:      60,
 		JSInterface: jsInterface,
 		OnClickHandler: func() {
-			jsInterface.CallFunction("Telegram.WebApp.expand", nil)
-			jsInterface.CallFunction("Window.console.log", "Test Output")
+			jsInterface.CallFunction("Window.Telegram.WebApp.expand", nil)
+			jsInterface.CallFunction("console.log", "Test Output")
 		},
 	}
 
