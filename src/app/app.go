@@ -21,7 +21,7 @@ func (g *Game) Update() error {
 	for _, input := range inputs {
 		fmt.Println("inputs", inputs)
 		for _, btn := range g.btn {
-			btn.JSInterface.CallFunction("console.log", inputs)
+			btn.JSInterface.CallFunction("console.log", input.X, input.Y)
 			btn.Update(input.X, input.Y)
 		}
 	}
