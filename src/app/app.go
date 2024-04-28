@@ -19,7 +19,9 @@ func (g *Game) Update() error {
 
 	inputs := g.gatherInputs() // Collect all inputs
 	for _, input := range inputs {
+		fmt.Println("inputs", inputs)
 		for _, btn := range g.btn {
+			btn.JSInterface.CallFunction("console.log", inputs)
 			btn.Update(input.X, input.Y)
 		}
 	}
@@ -52,6 +54,8 @@ func (g *Game) gatherInputs() []struct{ X, Y int } {
 
 	// Collect mouse input if the left button is just pressed
 	if inpututil.IsMouseButtonJustPressed(ebiten.MouseButtonLeft) {
+		fmt.Println("inputs", inputs)
+
 		fmt.Println("IsMouseButtonJustPressed")
 		x, y := ebiten.CursorPosition()
 		inputs = append(inputs, struct{ X, Y int }{X: x, Y: y})
@@ -69,7 +73,7 @@ func RunApp(jsInterface *component.JSInterface) {
 		JSInterface: jsInterface,
 		OnClickHandler: func() {
 			jsInterface.CallFunction("Telegram.WebApp.expand", nil)
-			jsInterface.CallFunction("window.console.log", "Test Output")
+			jsInterface.CallFunction("Window.console.log", "Test Output")
 		},
 	}
 
